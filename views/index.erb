@@ -7,5 +7,12 @@
   <input type="text" placeholder="Dog Type" name="dog_name">
   <input type="submit" value="Add dog">
 </form>
+<ul>
+  <% doggies.each do |dog_name| %>
+    <%= dog_name[:name] %>
+  <% end %>
+</ul>
+
+
 </body>
 </html>
