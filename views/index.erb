@@ -8,9 +8,11 @@
   <input type="submit" value="Add dog">
 </form>
 <ul>
-  <% doggies.each do |dog_name| %>
-    <%= dog_name[:name] %>
-  <% end %>
+
+    <% doggies.each do |dog_name| %>
+     <li> <%= dog_name[:name] %> </li>
+    <% end %>
+
 </ul>
 
 
