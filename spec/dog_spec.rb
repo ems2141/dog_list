@@ -4,6 +4,9 @@ require_relative '../dog'
 Capybara.app = Dog
 
 feature Dog do
+  before do
+    DB[:dog_list].delete
+  end
 
   it "should add and show a list of dogs" do
 

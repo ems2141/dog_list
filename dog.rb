@@ -3,8 +3,8 @@ require 'sinatra/base'
 class Dog < Sinatra::Application
 
   get '/' do
-    dog_table = DB[:dog_list]
-    erb :index, locals: {doggies: dog_table.to_a}
+    dog_table = DB[:dog_list].all
+    erb :index, locals: {doggies: dog_table}
   end
 
   post '/' do
