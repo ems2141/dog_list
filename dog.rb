@@ -12,4 +12,11 @@ class Dog < Sinatra::Application
     dog_table.insert(name: params[:dog_name])
     redirect '/'
   end
+
+  get '/dog/:id' do
+    dog_table = DB[:dog_list].all
+    dog_to_show = dog_table.find(params[:id])
+
+    erb :show_dogs, :locals => {dog: dog_to_show}
+  end
 end

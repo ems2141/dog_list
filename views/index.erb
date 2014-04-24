@@ -10,7 +10,8 @@
 <ul>
 
     <% doggies.each do |dog_name| %>
-     <li> <%= dog_name[:name] %> </li>
+     <li> <%= dog_name[:name] %> <a href="dog/<%=dog_name[:id]%>">Show Dog</a>
+     </li>
     <% end %>
 
 </ul>
