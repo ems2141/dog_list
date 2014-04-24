@@ -4,7 +4,7 @@ class Dog < Sinatra::Application
 
   get '/' do
     dog_table = DB[:dog_list].all
-    erb :index, locals: {doggies: dog_table}
+    erb :index, locals: {dogs: dog_table}
   end
 
   post '/' do
@@ -14,9 +14,17 @@ class Dog < Sinatra::Application
   end
 
   get '/dog/:id' do
-    dog_table = DB[:dog_list].all
-    dog_to_show = dog_table.find(params[:id])
-
+    dog_to_show = DB[:dog_list].where(id: params[:id]).first
     erb :show_dogs, :locals => {dog: dog_to_show}
+  end
+
+  get '/dog/:id/edit' do
+    erb :edit, locals: {id: params[:id]}
+  end
+
+  put '/:id' do
+    dog_table = DB[:dog_list]
+    dog_table.where(id: params[:id]).update(name: params[:dog_name])
+    redirect '/'
   end
 end

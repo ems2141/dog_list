@@ -11,12 +11,18 @@ feature Dog do
   it "should add and show a list of dogs" do
 
     visit '/'
-    fill_in "Dog Type", with: 'Pug'
+    fill_in 'Dog Type', with: 'Pug'
     click_on('Add dog')
     expect(page).to have_content 'Pug'
 
-    click_on "Show Dog"
-    expect(page).to have_content "Pug"
+    click_on 'Show Dog'
+    expect(page).to have_content 'Pug'
+
+    click_on 'Edit'
+    fill_in 'dog_name', with: 'Lab'
+    click_on 'Update'
+    expect(page).to have_content 'Lab'
+    expect(page).to have_no_content 'Pug'
   end
 
 end

@@ -9,7 +9,7 @@
 </form>
 <ul>
 
-    <% doggies.each do |dog_name| %>
+    <% dogs.each do |dog_name| %>
      <li> <%= dog_name[:name] %> <a href="dog/<%=dog_name[:id]%>">Show Dog</a>
      </li>
     <% end %>
