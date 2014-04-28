@@ -27,4 +27,9 @@ class Dog < Sinatra::Application
     dog_table.where(id: params[:id]).update(name: params[:dog_name])
     redirect '/'
   end
+
+  delete '/dog/:id' do
+    DB[:dog_list].where(id: params[:id]).delete
+    redirect '/'
+  end
 end

@@ -23,6 +23,12 @@ feature Dog do
     click_on 'Update'
     expect(page).to have_content 'Lab'
     expect(page).to have_no_content 'Pug'
+
+
+    click_on 'Show Dog'
+
+    click_on 'Delete'
+    expect(page).to have_no_content 'Lab'
   end
 
 end

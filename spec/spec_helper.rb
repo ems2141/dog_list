@@ -1,6 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 require 'sequel'
 require 'capybara/rspec'
+require 'pry'
+require 'pry-nav'
 
 DB = Sequel.connect('postgres://gschool_user:password@localhost/dog_list_test')
 
